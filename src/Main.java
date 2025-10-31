@@ -2,6 +2,14 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
+        netCalculation();
+
+    }
+
+    public static void netCalculation()
+    {
+
         Scanner scanStuff = new Scanner(System.in);
         int income = 0;
         String response;
@@ -13,8 +21,7 @@ public class Main {
             System.out.println("How much do you make per month before taxes in EUR?");
 
 
-            while (!incomeScanning)
-            {
+            while (!incomeScanning) {
                 try {
                     income = Integer.parseInt(scanStuff.nextLine());
                     incomeScanning = true;
@@ -27,17 +34,16 @@ public class Main {
 
             response = scanStuff.nextLine();
 
-            while (!response.equals("y") && !response.equals("yes") && !response.equals("n") && !response.equals("no"))
-            {
+            while (!response.equals("y") && !response.equals("yes") && !response.equals("n") && !response.equals("no")) {
                 System.out.println("Please enter y/n as your answer!");
 
-                response= scanStuff.nextLine();
+                response = scanStuff.nextLine();
             }
 
 
-        }while (!response.equals("y") && !response.equals("yes"));
+        } while (!response.equals("y") && !response.equals("yes"));
 
-        System.out.println("After taxes, you are making " + (income - (income * 0.335)) + "EUR a month!");
+        System.out.println("After taxes, you are making " + (Math.round(income * 0.335)) + "EUR a month!");
 
         System.out.println("\nWould you like to add your monthly expenses to see how much leftover money you have? y/n");
 
@@ -49,14 +55,14 @@ public class Main {
                 System.out.println("Please enter y/n as your answer!");
             }
 
-        }while (!response.equals("y") && !response.equals("yes") && !response.equals("n") && !response.equals("no"));
+        } while (!response.equals("y") && !response.equals("yes") && !response.equals("n") && !response.equals("no"));
 
-        if (response.equals("n") || response.equals("no"))
-        {
+        if (response.equals("n") || response.equals("no")) {
             System.out.println("\nThank you for using our service, have a nice day!");
 
             System.exit(0);
         }
 
     }
+
 }
