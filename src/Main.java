@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.TreeMap;
 public class Main {
     public static void main(String[] args) {
 
@@ -7,11 +7,13 @@ public class Main {
 
     }
 
-    public static void netCalculation()
+    public static int netCalculation()
     {
 
         Scanner scanStuff = new Scanner(System.in);
         int income = 0;
+        int expendable = 0;
+        TreeMap<String, Integer> monthlyExpenses = new TreeMap<>();
         String response;
 
         System.out.println("Welcome to Finance manager! \nTo get started, do tell me:");
@@ -62,6 +64,17 @@ public class Main {
 
             System.exit(0);
         }
+
+
+        System.out.println("What type of fix expenses (rent, etc...) do you have on a monthly basis? Give them in 'expense type' then 'paid amount' format, and type 'exit' in 'expense type' when you want to stop.");
+        while(true){
+
+            monthlyExpenses.put(,);
+
+
+        }
+
+        return expendable;
 
     }
 
