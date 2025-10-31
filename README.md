@@ -1,6 +1,7 @@
 #Demo
 
-This is a test project where you will learn how to work
-with the most popular Git operations.
+Java studying projects that I'm creating as self-learning.
 
-Refer to `git-features.md` to check the list of Git operations.
+I'm also figuring out git, alongside branches, merging, merge-conflict resolving, and whatnot.
+
+I'm most likely going to list all the branches in `git-features.md`.
