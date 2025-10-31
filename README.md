@@ -1,6 +1,6 @@
 #Demo
 
-Java studying projects that I'm creating as self-learning.
+Java studying projects that I'm doing as self-learning.
 
 I'm also figuring out git, alongside branches, merging, merge-conflict resolving, and whatnot.
 
