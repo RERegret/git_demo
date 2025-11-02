@@ -4,15 +4,22 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanStuff = new Scanner(System.in);
 
-        System.out.println("Choose your application! \n1: Finance planner \n2:BMI calculator \n3:... \n0: Exit");
+        System.out.println("Choose your application! \n1: Finance planner \n2: BMI calculator \n3: ... \n0: Exit");
 
         switch (scanStuff.nextLine()){
             case "0":
+                System.out.println("Have a nice day!");
                 System.exit(0);
+                break;
             case "1":
                 netCalculation(scanStuff);
+                break;
             case "2":
                 bmiCalculator(scanStuff);
+                break;
+            default:
+                System.out.println("Choose an appropriate option!");
+                break;
         }
     }
 
@@ -87,6 +94,67 @@ public class Main {
     }
 
     public static void bmiCalculator(Scanner scanStuff){
+        double bmi;
+        double weight=0;
+        double height=0;
+        boolean correctInput;
+        String[] parameters;
+        System.out.println("Welcome to BMI calculator!\nTo get started, do tell me:");
 
+        do {
+            System.out.println("Do you use the Metric(1), or the Imperial(2) system?");
+            switch (scanStuff.nextLine()) {
+                case "1":
+                    System.out.println("What's your weight in kg, and height in cm using 'kg,cm' format?");
+                    try {
+                        parameters = scanStuff.nextLine().split(",");
+                        weight = Double.parseDouble(parameters[0]);
+                        height = Double.parseDouble(parameters[1]) / 100.0;
+                        correctInput = true;
+                        break;
+                    }catch (Exception e)
+                    {
+                        System.out.println("Use the correct input format!\n");
+                        correctInput = false;
+                        break;
+                    }
+
+                case "2":
+                    System.out.println("What's your weight in lb, and height in feet and inches using 'lb,feet,inches' format?");
+                    
+                    try {
+                        parameters = scanStuff.nextLine().split(",");
+                        weight = 0.4536 * Double.parseDouble(parameters[0]);
+                        height = ((30.48 * Double.parseDouble(parameters[1])) + (2.54 * Double.parseDouble(parameters[2]))) / 100.0;
+                        correctInput = true;
+                        break;
+                    }catch (Exception e)
+                    {
+                        System.out.println("Use the correct input format!\n");
+                        correctInput = false;
+                        break;
+                    }
+                default:
+                    correctInput = false;
+
+            }
+        }while (!correctInput) ;
+
+        bmi = weight / Math.pow(height,2);
+
+        if (bmi <18.5)
+        {
+            System.out.println("Your BMI value is the following: " + bmi + "\nThis value is considered underweight.");
+        } else if (bmi <25.0)
+        {
+            System.out.println("Your BMI value is the following: " + bmi + "\nThis value is considered normal.");
+        } else if (bmi <30.0)
+        {
+            System.out.println("Your BMI value is the following: " + bmi + "\nThis value is considered overweight.");
+        } else
+        {
+            System.out.println("Your BMI value is the following: " + bmi + "\nThis value is considered obese.");
+        }
+
+        }
     }
-}

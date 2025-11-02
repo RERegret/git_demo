@@ -1,2 +1,2 @@
 # bmiCalculator
-This branch is where I'm making a console application, where the system asks for the users body detail, and then calculates their BMI datas.
+This branch is where I'm making a console application, where the system asks for the users body detail, and then calculates their BMI value, and categorize them based on it (underweight,normal range, overweight, obese).
