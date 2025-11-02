@@ -1,2 +1,2 @@
-# FinanceManager
-This branch is where I'm making a console application, where the system asks for the users monthly salary, then asks about their monthly expenses, and calculates how much money they have left afterwards.
+# bmiCalculator
+This branch is where I'm making a console application, where the system asks for the users body detail, and then calculates their BMI datas.
