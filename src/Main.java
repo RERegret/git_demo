@@ -4,13 +4,15 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanStuff = new Scanner(System.in);
 
-        System.out.println("Choose your application! \n1: Finance planner \n2:... \n0: Exit");
+        System.out.println("Choose your application! \n1: Finance planner \n2:BMI calculator \n3:... \n0: Exit");
 
         switch (scanStuff.nextLine()){
             case "0":
                 System.exit(0);
             case "1":
                 netCalculation(scanStuff);
+            case "2":
+                bmiCalculator(scanStuff);
         }
     }
 
@@ -82,5 +84,9 @@ public class Main {
             expendable -= monthlyExpenses.get(i);
         }
         System.out.println("\nRemaining money after paying all your fix expenses: "+expendable +"EUR ");
+    }
+
+    public static void bmiCalculator(Scanner scanStuff){
+
     }
 }
