@@ -12,7 +12,7 @@ public class Main {
 
         Scanner scanStuff = new Scanner(System.in);
         int income = 0;
-        int expendable = 0;
+        int expendable;
         TreeMap<String, Integer> monthlyExpenses = new TreeMap<>();
         String response;
 
@@ -44,8 +44,8 @@ public class Main {
 
 
         } while (!response.equals("y") && !response.equals("yes"));
-
-        System.out.println("After taxes, you are making " + (Math.round(income * 0.335)) + "EUR a month!");
+        expendable = Math.toIntExact(Math.round(income * 0.665));
+        System.out.println("After taxes, you are making " + expendable + "EUR a month!");
 
         System.out.println("\nWould you like to add your monthly expenses to see how much leftover money you have? y/n");
 
@@ -67,13 +67,19 @@ public class Main {
 
 
         System.out.println("What type of fix expenses (rent, etc...) do you have on a monthly basis? Give them in 'expense type' then 'paid amount' format, and type 'exit' in 'expense type' when you want to stop.");
-        while(true){
+        while(!monthlyExpenses.containsKey("exit")){
 
-            monthlyExpenses.put(,);
-
+            monthlyExpenses.put(scanStuff.nextLine(),Integer.parseInt(scanStuff.nextLine()));
 
         }
+        monthlyExpenses.remove("exit");
 
+        for (String i : monthlyExpenses.keySet()) {
+            System.out.println("\nExpense type: " + i + "\nPaid amount: " + monthlyExpenses.get(i) + "EUR");
+            expendable -= monthlyExpenses.get(i);
+        }
+
+        System.out.println(expendable);
         return expendable;
 
     }
