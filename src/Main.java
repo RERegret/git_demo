@@ -2,15 +2,20 @@ import java.util.Scanner;
 import java.util.TreeMap;
 public class Main {
     public static void main(String[] args) {
+        Scanner scanStuff = new Scanner(System.in);
 
-        netCalculation();
+        System.out.println("Choose your application! \n1: Finance planner \n2:...");
 
+        switch (scanStuff.nextLine()){
+            case "1":
+                netCalculation(scanStuff);
+        }
     }
 
-    public static int netCalculation()
+    public static void netCalculation(Scanner scanStuff)
     {
 
-        Scanner scanStuff = new Scanner(System.in);
+
         int income = 0;
         int expendable;
         TreeMap<String, Integer> monthlyExpenses = new TreeMap<>();
@@ -52,25 +57,18 @@ public class Main {
 
         do {
             response = scanStuff.nextLine();
-
             if (!response.equals("y") && !response.equals("yes") && !response.equals("n") && !response.equals("no")) {
                 System.out.println("Please enter y/n as your answer!");
             }
-
         } while (!response.equals("y") && !response.equals("yes") && !response.equals("n") && !response.equals("no"));
 
         if (response.equals("n") || response.equals("no")) {
             System.out.println("\nThank you for using our service, have a nice day!");
-
             System.exit(0);
         }
-
-
         System.out.println("What type of fix expenses (rent, etc...) do you have on a monthly basis? Give them in 'expense type' then 'paid amount' format, and type 'exit' in 'expense type' when you want to stop.");
         while(!monthlyExpenses.containsKey("exit")){
-
             monthlyExpenses.put(scanStuff.nextLine(),Integer.parseInt(scanStuff.nextLine()));
-
         }
         monthlyExpenses.remove("exit");
 
@@ -78,10 +76,7 @@ public class Main {
             System.out.println("\nExpense type: " + i + "\nPaid amount: " + monthlyExpenses.get(i) + "EUR");
             expendable -= monthlyExpenses.get(i);
         }
-
         System.out.println(expendable);
-        return expendable;
-
     }
 
 }
